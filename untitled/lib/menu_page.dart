@@ -23,7 +23,7 @@ class _MenuState extends State<Menu> {
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Підбірка мемів про незаконно збудовану споруду",
+          title: Text("Підбірка мемів про міст",
             textAlign: TextAlign.center,
             style: GoogleFonts.comfortaa(
               fontSize: 20,
