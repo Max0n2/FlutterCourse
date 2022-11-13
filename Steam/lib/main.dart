@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:popover/popover.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:steam/bottomBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Steam(),
+      home: BottomBar(),
     );
   }
 }
@@ -53,9 +54,10 @@ class _SteamState extends State<Steam> {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext  context) {
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         backgroundColor: const Color.fromRGBO(28,45,71,1),
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100.0),
@@ -75,23 +77,12 @@ class _SteamState extends State<Steam> {
               const MainPage(),
               const TextBetweenMainPageAndCarousel(),
               FirtsCarousel(images: images, names: names, price: price),
-              const News(),
+              const PopularNews(),
               const TextBetweenNewsAndSecondCarousel(),
               FirtsCarousel(images: images, names: names, price: price),
             ],
           ),
         ),
-          bottomNavigationBar: CurvedNavigationBar(
-            backgroundColor: Colors.transparent,
-            color: Color.fromRGBO(32,33,38,1),
-            items: <Widget>[
-              Icon(Icons.shop,color: Colors.white,),
-              Icon(CupertinoIcons.news_solid,color: Colors.white,),
-              Icon(Icons.safety_check,color: Colors.white,),
-              Icon(CupertinoIcons.bell,color: Colors.white,),
-              Icon(CupertinoIcons.line_horizontal_3,color: Colors.white,),
-            ],
-          )
       ),
     );
   }
@@ -206,8 +197,8 @@ class TextBetweenNewsAndSecondCarousel extends StatelessWidget {
   }
 }
 
-class News extends StatelessWidget {
-  const News({
+class PopularNews extends StatelessWidget {
+  const PopularNews({
     Key? key,
   }) : super(key: key);
 
