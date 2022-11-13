@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:popover/popover.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,30 +32,24 @@ class _SteamState extends State<Steam> {
 
   final List<String> images = [
     'https://cdn.akamai.steamstatic.com/steam/apps/294100/header.jpg?t=1650485223',
-    'https://cdn.akamai.steamstatic.com/steam/apps/2087030/header.jpg?t=1663517389',
     'https://cdn.akamai.steamstatic.com/steam/apps/380600/header_ukrainian.jpg?t=1666252916',
     'https://cdn.akamai.steamstatic.com/steam/apps/868270/header.jpg?t=1665591177',
     'https://cdn.akamai.steamstatic.com/steam/apps/1085660/header.jpg?t=1661876523',
     'https://cdn.akamai.steamstatic.com/steam/apps/1687950/header.jpg?t=1666326569',
-    'https://cdn.cloudflare.steamstatic.com/steamdeck/images/social_media_image.jpg',
   ];
   final List<String> names = [
     'RimWorld',
-    'Shatterline',
     'Fishing Planet',
     'The Cycle: Frontier',
     'Destiny 2',
     'Personal 5 Royal',
-    'Steam Desc',
   ];
   final List<String> price = [
     '429₴',
     'Вільний доступ',
     'Вільний доступ',
     'Вільний доступ',
-    'Вільний доступ',
     '1 799₴',
-    '',
   ];
 
   @override
@@ -86,37 +81,16 @@ class _SteamState extends State<Steam> {
             ],
           ),
         ),
-          bottomNavigationBar: BottomNavigationBar(
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shop,color: Colors.blue,),
-                label: 'Home',
-                backgroundColor: Color.fromRGBO(32,33,38,1),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.news_solid),
-                label: 'Business',
-                backgroundColor: Color.fromRGBO(32,33,38,1),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.safety_check),
-                label: 'School',
-                backgroundColor: Color.fromRGBO(32,33,38,1),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.bell),
-                label: 'Settings',
-                backgroundColor: Color.fromRGBO(32,33,38,1),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.line_horizontal_3),
-                label: 'Settings',
-                backgroundColor: Color.fromRGBO(32,33,38,1),
-              ),
+          bottomNavigationBar: CurvedNavigationBar(
+            backgroundColor: Colors.transparent,
+            color: Color.fromRGBO(32,33,38,1),
+            items: <Widget>[
+              Icon(Icons.shop,color: Colors.white,),
+              Icon(CupertinoIcons.news_solid,color: Colors.white,),
+              Icon(Icons.safety_check,color: Colors.white,),
+              Icon(CupertinoIcons.bell,color: Colors.white,),
+              Icon(CupertinoIcons.line_horizontal_3,color: Colors.white,),
             ],
-            selectedItemColor: const Color.fromRGBO(32,33,38,1),
           )
       ),
     );
@@ -241,7 +215,7 @@ class News extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.fromLTRB(0, 45, 0, 0),
-      child: Image(image: NetworkImage('https://s-cdn.sportbox.ru/images/styles/upload/fp_fotos/d8/18/2c05f12a64c1d4bacac9ba75faaa22776347ea3f2a914331247976.jpg'),)
+      child: Image(image: NetworkImage('https://img-cdn.hltv.org/gallerypicture/GghLJbQO8deJ3t1tnil4wu.jpg?ixlib=java-2.1.0&w=800&s=9faef962ed09c94693ce5629d53f6575'),)
     );
   }
 }
@@ -431,7 +405,7 @@ class TopHeader extends StatelessWidget {
                   child: Image(
                     width: 14,
                     height: 14,
-                    image: NetworkImage('https://cdn.cloudflare.steamstatic.com/steamdeck/images/steamdeck_steamlogo.png'),
+                    image: NetworkImage('https://icones.pro/wp-content/uploads/2022/05/icone-steam.png'),
                   ),
                 ),
                 contentPadding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
